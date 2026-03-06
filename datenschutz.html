@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutz — AyCaramba!</title>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
+  <link href="https://fonts.cdnfonts.com/css/basement-grotesque" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange:    #FEA651;
+      --orange-l:  #FFB96B;
+      --bg:        #000000;
+      --border:    rgba(255,255,255,0.08);
+      --text:      #ebebeb;
+      --text-sub:  #888888;
+      --text-mute: #505050;
+      --card:      #0f0f0f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Basement Grotesque', 'Space Grotesk', sans-serif;
+      color: #fff;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(254,166,81,0.45); border-radius: 3px; }
+    ::selection { background: var(--orange); color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav style="background:var(--bg);border-bottom:1px solid var(--border);padding:0 24px;">
+  <div style="max-width:860px;margin:0 auto;padding:20px 0;display:flex;align-items:center;justify-content:space-between;">
+    <a href="index.html">
+      <img src="brand_assets/Aycaramba_Logo_White.png" alt="AyCaramba!" style="height:36px;width:auto;" />
+    </a>
+    <a href="index.html"
+       style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--text-sub);
+              text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+              transition:color 0.15s ease;"
+       onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-sub)'">
+      ← Zurück zur Startseite
+    </a>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<main style="max-width:860px;margin:0 auto;padding:72px 24px 100px;">
+
+  <h1 style="font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-0.03em;
+             line-height:1.05;margin-bottom:16px;">
+    Datenschutz
+  </h1>
+  <p style="font-size:14px;color:var(--text-mute);margin-bottom:64px;">Datenschutzerklärung gemäß DSGVO</p>
+
+  <!-- Coming Soon -->
+  <section style="margin-bottom:48px;">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;
+                padding:40px 36px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:22px;">🚧</span>
+      <div>
+        <p style="font-family:'Basement Grotesque','Space Grotesk',sans-serif;
+                  font-size:18px;font-weight:800;letter-spacing:-0.02em;color:#fff;
+                  margin-bottom:4px;">COMING SOON</p>
+        <p style="font-size:14px;color:var(--text-sub);">
+          Vollständige Datenschutzerklärung wird in Kürze ergänzt.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section style="margin-bottom:48px;">
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.02em;margin-bottom:16px;
+               padding-bottom:12px;border-bottom:1px solid var(--border);">
+      Kontakt
+    </h2>
+    <p style="font-size:15px;color:var(--text-sub);margin-bottom:8px;">E-Mail</p>
+    <a href="mailto:contact@aycaramba.at"
+       style="font-size:16px;color:var(--orange);text-decoration:none;font-weight:500;
+              transition:color 0.15s ease;"
+       onmouseover="this.style.color='var(--orange-l)'"
+       onmouseout="this.style.color='var(--orange)'">
+      contact@aycaramba.at
+    </a>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="background:#000;border-top:1px solid var(--border);padding:28px 24px;">
+  <div style="max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <img src="brand_assets/Aycaramba_Logo_White.png" alt="AyCaramba!" style="height:24px;display:block;opacity:0.6;"/>
+    <div style="display:flex;gap:24px;">
+      <a href="datenschutz.html"
+         style="font-size:13px;color:var(--orange);text-decoration:none;font-family:'Inter',sans-serif;">
+        Datenschutz
+      </a>
+      <a href="impressum.html"
+         style="font-size:13px;color:var(--text-sub);text-decoration:none;font-family:'Inter',sans-serif;transition:color 0.15s;"
+         onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-sub)'">
+        Impressum
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
