@@ -6,7 +6,12 @@
 ## Reference Images
 - If a reference image is provided: match layout, spacing, typography, and color exactly. Swap in placeholder content (images via `https://placehold.co/`, generic copy). Do not improve or add to the design.
 - If no reference image: design from scratch with high craft (see guardrails below).
-- Screenshot your output, only do one screenshot of the new changes and replace it with the current screenshot matching the refernce. Compare against reference, fix mismatches, re-screenshot. Stop only when no visible differences remain or user says so.
+After every revision, take TWO screenshots:
+  1. A full-page screenshot of the entire website (overwrite the existing full-page shot)
+  2. A close-up screenshot of only the revised section (overwrite the existing section shot)
+- Use the section-screenshots script for close-ups: `node screenshot-sections.mjs`
+- For new sections (first time), just save — no overwrite needed.
+- Read both PNGs after saving and confirm visually before reporting done.
 
 ## Local Server
 - **Always serve on localhost** — never screenshot a `file:///` URL.
