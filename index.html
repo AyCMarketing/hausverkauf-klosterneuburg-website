@@ -111,7 +111,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('brand_assets/Titelbild.JPG');
+      background-image: url('brand_assets/Titelbild.jpg');
       background-size: cover;
       background-position: center center;
       will-change: transform;
@@ -929,8 +929,6 @@
       gap: 1.8rem;
     }
 
-    .kontakt-meta-item {}
-
     .kontakt-meta-label {
       font-size: 0.62rem;
       letter-spacing: 0.22em;
@@ -1166,6 +1164,39 @@
       transform: translateY(-6.5px) rotate(-45deg);
     }
 
+    /* ─────────────────────────────── LANG TOGGLE */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0 0.5rem;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sub);
+      transition: color 0.3s;
+    }
+
+    .lang-toggle:hover {
+      color: var(--accent);
+    }
+
+    .lang-sep {
+      opacity: 0.35;
+    }
+
+    .lang-toggle[data-lang="de"] .lang-de,
+    .lang-toggle[data-lang="en"] .lang-en {
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+    }
+
     @media (max-width: 640px) {
       nav {
         padding: 1rem 1.25rem;
@@ -1246,10 +1277,16 @@
   <nav id="mainNav">
     <a href="#hero" class="nav-logo">Stadthaus Klosterneuburg</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#galerie" class="nav-link-item">Galerie</a></li>
-      <li><a href="#kontakt" class="nav-link-item">Kontakt</a></li>
+      <li><a href="#galerie" class="nav-link-item" data-i18n="nav.galerie">Galerie</a></li>
+      <li><a href="#kontakt" class="nav-link-item" data-i18n="nav.kontakt">Kontakt</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+    <button id="langToggle" class="lang-toggle" data-lang="de" aria-label="Switch language / Sprache wechseln"
+      onclick="setLang(this.dataset.lang === 'de' ? 'en' : 'de')">
+      <span class="lang-de">DE</span>
+      <span class="lang-sep">|</span>
+      <span class="lang-en">EN</span>
+    </button>
+    <button class="burger" id="burger" aria-label="Menü öffnen" data-i18n-aria="nav.burgerLabel" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -1259,7 +1296,7 @@
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1 class="hero-title">
+      <h1 class="hero-title" data-i18n-html="hero.title">
         Exklusives historisches Stadthaus mit<br>
         privater Dachterrasse und Business-Potenzial
       </h1>
@@ -1269,10 +1306,12 @@
   <!-- ───── INTRO ───── -->
   <section id="intro">
     <div class="container-narrow">
-      <h2 class="section-title reveal reveal-delay-1">Hinter der zurückhaltenden Fassade <br><em>in der Fußgängerzone
-          von Klosterneuburg...</em></h2>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="intro.heading">Hinter der zurückhaltenden Fassade
+        <br><em>in der Fußgängerzone
+          von Klosterneuburg...</em>
+      </h2>
       <div class="divider divider-center reveal reveal-delay-2"></div>
-      <p class="section-body reveal reveal-delay-2">
+      <p class="section-body reveal reveal-delay-2" data-i18n="intro.body">
         ... verbirgt sich eine außergewöhnliche Immobilie mit Geschichte und nahezu unbegrenzten Möglichkeiten.
         Dieses einzigartige Stadthaus aus dem 16.Jahrhundert verbindet historischen Charme mit moderner Architektur zu
         einem inspirierenden Ensemble.
@@ -1287,8 +1326,10 @@
     <div class="banner-bg" style="background-image: url('brand_assets/12 (2).jpg')"></div>
     <div class="banner-overlay"></div>
     <div class="banner-content">
-      <p class="banner-kicker reveal">Wer hier lebt und arbeitet, genießt einen entscheidenden Luxus:</p>
-      <p class="banner-headline reveal reveal-delay-1">Der Weg vom Wohnbereich zum Arbeitsplatz<br>dauert nur wenige
+      <p class="banner-kicker reveal" data-i18n="banner1.kicker">Wer hier lebt und arbeitet, genießt einen
+        entscheidenden Luxus:</p>
+      <p class="banner-headline reveal reveal-delay-1" data-i18n-html="banner1.headline">Der Weg vom Wohnbereich zum
+        Arbeitsplatz<br>dauert nur wenige
         Sekunden.</p>
     </div>
   </div>
@@ -1296,16 +1337,20 @@
   <!-- ───── DACHTERRASSE ───── -->
   <section id="dachterrasse">
     <div class="container-narrow">
-      <h2 class="section-title reveal reveal-delay-1">Noch mehr Luxus<br><em>über den Dächern von Klosterneuburg</em>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="dach.heading">Noch mehr Luxus<br><em>über den
+          Dächern von Klosterneuburg</em>
       </h2>
       <div class="divider divider-center reveal reveal-delay-2"></div>
       <ul class="dach-list reveal reveal-delay-2">
-        <li>Das Dachgeschoß eröffnet eine grüne Wohlfühloase mit zwei privaten Terrassen.</li>
-        <li>Eine großzügige 70&nbsp;m² Dachterrasse mit Begrünung bietet Raum für entspannte Abende, inspirierende
+        <li data-i18n="dach.li1">Das Dachgeschoß eröffnet eine grüne Wohlfühloase mit zwei privaten Terrassen.</li>
+        <li data-i18n-html="dach.li2">Eine großzügige 70&nbsp;m² Dachterrasse mit Begrünung bietet Raum für entspannte
+          Abende, inspirierende
           Gespräche oder exklusive Empfänge.</li>
-        <li>Die zweite Terrasse mit Whirlpool schafft einen privaten Rückzugsort mit Blick über die Dächer der Stadt.
+        <li data-i18n="dach.li3">Die zweite Terrasse mit Whirlpool schafft einen privaten Rückzugsort mit Blick über die
+          Dächer der Stadt.
         </li>
-        <li>Ergänzt wird das Ambiente durch eine Frühstücksterrasse im Halbstock, einen mediterranen Innenhof, einen
+        <li data-i18n="dach.li4">Ergänzt wird das Ambiente durch eine Frühstücksterrasse im Halbstock, einen
+          mediterranen Innenhof, einen
           stimmungsvollen Eventkeller und einen charmanten Weinkeller – perfekt für Menschen, die gerne Gastgeber sind.
         </li>
       </ul>
@@ -1317,23 +1362,25 @@
     <div class="banner-bg" style="background-image: url('brand_assets/13 (2).JPG')"></div>
     <div class="banner-overlay"></div>
     <div class="banner-content">
-      <p class="banner-kicker reveal">Dieses Haus ist weit mehr als eine Wohnimmobilie</p>
-      <p class="banner-headline banner-headline--caps reveal reveal-delay-1">Perfekt für Unternehmer und Visionäre</p>
+      <p class="banner-kicker reveal" data-i18n="banner2.kicker">Dieses Haus ist weit mehr als eine Wohnimmobilie</p>
+      <p class="banner-headline banner-headline--caps reveal reveal-delay-1" data-i18n="banner2.headline">Perfekt für
+        Unternehmer und Visionäre</p>
     </div>
   </div>
 
   <!-- ───── NUTZUNG ───── -->
   <section id="nutzung">
     <div class="container-narrow">
-      <h2 class="section-title reveal reveal-delay-1">Die separaten Einheiten eröffnen<br><em>zahlreiche
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="nutzung.heading">Die separaten Einheiten
+        eröffnen<br><em>zahlreiche
           Möglichkeiten</em></h2>
       <div class="divider divider-center reveal reveal-delay-2"></div>
       <ul class="dach-list reveal reveal-delay-2">
-        <li>Exklusiver Wohnsitz mit eigenem Büro</li>
-        <li>Ordination oder Praxis</li>
-        <li>Boutique-Agentur oder Kreativstudio</li>
-        <li>Private Member Lounge oder Seminarhaus</li>
-        <li>Stilvolle Kombination aus Wohnen und Büro</li>
+        <li data-i18n="nutzung.li1">Exklusiver Wohnsitz mit eigenem Büro</li>
+        <li data-i18n="nutzung.li2">Ordination oder Praxis</li>
+        <li data-i18n="nutzung.li3">Boutique-Agentur oder Kreativstudio</li>
+        <li data-i18n="nutzung.li4">Private Member Lounge oder Seminarhaus</li>
+        <li data-i18n="nutzung.li5">Stilvolle Kombination aus Wohnen und Büro</li>
       </ul>
     </div>
   </section>
@@ -1341,8 +1388,9 @@
   <!-- ───── GALERIE / SLIDER ───── -->
   <section id="galerie">
     <div class="galerie-header">
-      <span class="eyebrow reveal">Impressionen</span>
-      <h2 class="section-title reveal reveal-delay-1">Das Objekt<br><em>in Bildern</em></h2>
+      <span class="eyebrow reveal" data-i18n="galerie.eyebrow">Impressionen</span>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="galerie.heading">Das Objekt<br><em>in Bildern</em>
+      </h2>
     </div>
 
     <div class="slider-wrap reveal" id="sliderWrap">
@@ -1376,12 +1424,12 @@
 
       </div><!-- /slider-track -->
 
-      <button class="slider-btn prev" id="sliderPrev" aria-label="Vorheriges Bild">
+      <button class="slider-btn prev" id="sliderPrev" aria-label="Vorheriges Bild" data-i18n-aria="js.prevSlide">
         <svg viewBox="0 0 24 24">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </button>
-      <button class="slider-btn next" id="sliderNext" aria-label="Nächstes Bild">
+      <button class="slider-btn next" id="sliderNext" aria-label="Nächstes Bild" data-i18n-aria="js.nextSlide">
         <svg viewBox="0 0 24 24">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
@@ -1395,42 +1443,54 @@
   </section>
 
   <!-- ───── BANNER BILDER ───── -->
-  <section id="banner-bilder" style="
-    background: var(--cream);
-    padding: 5rem 2rem;
-  ">
-    <div style="
+  <style>
+    #banner-bilder {
+      background: var(--cream);
+      padding: 5rem 2rem;
+    }
+
+    .banner-bilder-grid {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
-    ">
-      <div style="
-        overflow: hidden;
-        border-radius: 2px;
-        position: relative;
-      ">
-        <img src="assets/banner/DSC_0014.JPG" alt="Außenansicht" style="
-          width: 100%;
-          height: 520px;
-          object-fit: cover;
-          display: block;
-          transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
-        " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" />
+    }
+
+    .banner-bilder-grid .bb-item {
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .banner-bilder-grid .bb-item img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .banner-bilder-grid .bb-item:hover img {
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 1200px) {
+      .banner-bilder-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .banner-bilder-grid .bb-item img {
+        height: auto;
+      }
+    }
+  </style>
+  <section id="banner-bilder">
+    <div class="banner-bilder-grid">
+      <div class="bb-item">
+        <img src="assets/banner/DSC_0014.JPG" alt="Außenansicht" />
       </div>
-      <div style="
-        overflow: hidden;
-        border-radius: 2px;
-        position: relative;
-      ">
-        <img src="assets/banner/DSC_0017.JPG" alt="Außenansicht Detail" style="
-          width: 100%;
-          height: 520px;
-          object-fit: cover;
-          display: block;
-          transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
-        " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" />
+      <div class="bb-item">
+        <img src="assets/banner/DSC_0017.JPG" alt="Außenansicht Detail" />
       </div>
     </div>
   </section>
@@ -1451,8 +1511,8 @@
           </svg>
         </div>
         <div class="lage-rule"></div>
-        <p class="lage-label">Garage für ein Auto im Haus</p>
-        <p class="lage-sub">3 Gehminuten zum Parkhaus</p>
+        <p class="lage-label" data-i18n="lage.label1">Garage für ein Auto im Haus</p>
+        <p class="lage-sub" data-i18n="lage.sub1">3 Gehminuten zum Parkhaus</p>
       </div>
 
       <div class="lage-item reveal reveal-delay-1">
@@ -1467,7 +1527,7 @@
           </svg>
         </div>
         <div class="lage-rule"></div>
-        <p class="lage-label">5 Gehminuten zu Zug oder Bus</p>
+        <p class="lage-label" data-i18n="lage.label2">5 Gehminuten zu Zug oder Bus</p>
       </div>
 
       <div class="lage-item reveal reveal-delay-2">
@@ -1479,7 +1539,7 @@
           </svg>
         </div>
         <div class="lage-rule"></div>
-        <p class="lage-label">17 Autominuten in die Wiener Innenstadt</p>
+        <p class="lage-label" data-i18n="lage.label3">17 Autominuten in die Wiener Innenstadt</p>
       </div>
 
       <div class="lage-item reveal reveal-delay-3">
@@ -1492,7 +1552,8 @@
           </svg>
         </div>
         <div class="lage-rule"></div>
-        <p class="lage-label">Alle Nahversorger für den täglichen Bedarf im Umkreis von 200 Metern</p>
+        <p class="lage-label" data-i18n="lage.label4">Alle Nahversorger für den täglichen Bedarf im Umkreis von 200
+          Metern</p>
       </div>
 
     </div>
@@ -1501,16 +1562,17 @@
   <!-- ───── GESCHICHTE ───── -->
   <section id="geschichte">
     <div class="container-narrow">
-      <h2 class="section-title reveal reveal-delay-1">400 Jahre Geschichte —<br><em>neu interpretiert</em></h2>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="geschichte.heading">400 Jahre Geschichte
+        —<br><em>neu interpretiert</em></h2>
       <div class="divider divider-center reveal reveal-delay-2"></div>
-      <p class="section-body reveal reveal-delay-2">
+      <p class="section-body reveal reveal-delay-2" data-i18n="geschichte.p1">
         Die Ursprünge dieses Hauses reichen bis ins 16. Jahrhundert zurück.
       </p>
-      <p class="section-body reveal reveal-delay-3" style="margin-top:1.1rem;">
+      <p class="section-body reveal reveal-delay-3" style="margin-top:1.1rem;" data-i18n="geschichte.p2">
         Im Zuge einer aufwändigen Generalsanierung wurde die historische Substanz mit großer Sorgfalt restauriert und
         mit moderner Architektur ergänzt.
       </p>
-      <p class="section-body reveal reveal-delay-4" style="margin-top:1.1rem;">
+      <p class="section-body reveal reveal-delay-4" style="margin-top:1.1rem;" data-i18n="geschichte.p3">
         Freigelegte Steinwände, Kreuzgewölbe, Terrakottaböden und handgearbeiteter Kalkputz verbinden sich mit Glas,
         Stahl und Holz zu einem faszinierenden Spannungsfeld zwischen Vergangenheit und Gegenwart.
       </p>
@@ -1522,40 +1584,41 @@
     <div class="banner-bg" style="background-image: url('brand_assets/24.JPG')"></div>
     <div class="banner-overlay"></div>
     <div class="banner-content">
-      <p class="banner-headline reveal">Ein Ort, an dem Wohnen, Unternehmertum und Lebensqualität verschmelzen.</p>
+      <p class="banner-headline reveal" data-i18n="banner3.headline">Ein Ort, an dem Wohnen, Unternehmertum und
+        Lebensqualität verschmelzen.</p>
     </div>
   </div>
 
   <!-- ───── KENNZAHLEN ───── -->
   <section id="kennzahlen">
-    <h2 class="section-title reveal reveal-delay-1">Die <em>Fakten</em></h2>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n-html="kennzahlen.heading">Die <em>Fakten</em></h2>
     <div class="divider divider-center reveal reveal-delay-2"></div>
     <div class="kennzahlen-card reveal reveal-delay-2">
       <div class="kennzahlen-row">
-        <span class="kennzahlen-label">Grundfläche</span>
+        <span class="kennzahlen-label" data-i18n="kennzahlen.grundflaeche">Grundfläche</span>
         <span class="kennzahlen-value">427 m²</span>
       </div>
       <div class="kennzahlen-row">
-        <span class="kennzahlen-label">Wohn Nutzfläche</span>
+        <span class="kennzahlen-label" data-i18n="kennzahlen.nutzflaeche">Wohn Nutzfläche</span>
         <span class="kennzahlen-value">640 m²</span>
       </div>
       <div class="kennzahlen-row">
-        <span class="kennzahlen-label">Kaufpreis</span>
+        <span class="kennzahlen-label" data-i18n="kennzahlen.kaufpreis">Kaufpreis</span>
         <span class="kennzahlen-value">2 390 000 Euro</span>
       </div>
       <div class="kennzahlen-row">
-        <span class="kennzahlen-label">m² Preis</span>
+        <span class="kennzahlen-label" data-i18n="kennzahlen.m2preis">m² Preis</span>
         <span class="kennzahlen-value">3.740 Euro</span>
       </div>
-      <p class="kennzahlen-provisionsfrei">Provisionsfrei</p>
+      <p class="kennzahlen-provisionsfrei" data-i18n="kennzahlen.provisionsfrei">Provisionsfrei</p>
     </div>
   </section>
 
   <!-- ───── VIDEO ───── -->
   <section id="video">
     <div class="container-narrow" style="text-align:center">
-      <span class="eyebrow reveal">Rundgang</span>
-      <h2 class="section-title reveal reveal-delay-1">Das Objekt<br><em>im
+      <span class="eyebrow reveal" data-i18n="video.eyebrow">Rundgang</span>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="video.heading">Das Objekt<br><em>im
           Video</em></h2>
       <div class="divider divider-center reveal reveal-delay-2"></div>
     </div>
@@ -1570,23 +1633,26 @@
   <!-- ───── BESICHTIGUNG CTA ───── -->
   <section id="besichtigung">
     <div class="container-narrow">
-      <h2 class="section-title reveal reveal-delay-1">Persönliche<br><em>Besichtigung</em></h2>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="besichtigung.heading">
+        Persönliche<br><em>Besichtigung</em></h2>
       <div class="divider divider-center reveal reveal-delay-2"></div>
-      <p class="section-body reveal reveal-delay-2">
+      <p class="section-body reveal reveal-delay-2" data-i18n="besichtigung.p1">
         Das besondere Flair dieser Immobilie lässt sich am besten bei einer persönlichen Besichtigung erleben.
       </p>
-      <p class="section-body reveal reveal-delay-3" style="margin-top:1.1rem;">
+      <p class="section-body reveal reveal-delay-3" style="margin-top:1.1rem;" data-i18n="besichtigung.p2">
         Wenn Sie auf der Suche nach einem außergewöhnlichen Haus mit Geschichte, Charakter und vielseitigen
         Möglichkeiten sind, freuen wir uns über Ihre Kontaktaufnahme.
       </p>
-      <a href="#kontakt" class="btn-outline reveal reveal-delay-4">Besichtigung vereinbaren</a>
+      <a href="#kontakt" class="btn-outline reveal reveal-delay-4" data-i18n="besichtigung.btn">Besichtigung
+        vereinbaren</a>
     </div>
   </section>
 
   <!-- ───── KONTAKT ───── -->
   <section id="kontakt">
     <div class="container-narrow">
-      <h2 class="section-title reveal reveal-delay-1">Besichtigungstermine<br><em>vereinbaren</em></h2>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="kontakt.heading">
+        Besichtigungstermine<br><em>vereinbaren</em></h2>
       <div class="divider divider-center reveal reveal-delay-2"></div>
       <div class="reveal reveal-delay-2">
         <p class="kontakt-simple-name">Horst Kriechbaum</p>
@@ -1602,13 +1668,152 @@
   <!-- ───── FOOTER ───── -->
   <footer>
     <ul class="footer-links">
-      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="impressum.html" data-i18n="footer.impressum">Impressum</a></li>
       <li><span class="footer-sep">·</span></li>
-      <li><a href="datenschutz.html">Datenschutz</a></li>
+      <li><a href="datenschutz.html" data-i18n="footer.datenschutz">Datenschutz</a></li>
     </ul>
   </footer>
 
   <script>
+    // ── TRANSLATIONS
+    const TRANSLATIONS = {
+      de: {
+        'nav.galerie': 'Galerie',
+        'nav.kontakt': 'Kontakt',
+        'nav.burgerLabel': 'Menü öffnen',
+        'hero.title': 'Exklusives historisches Stadthaus mit<br>privater Dachterrasse und Business-Potenzial',
+        'intro.heading': 'Hinter der zurückhaltenden Fassade <br><em>in der Fußgängerzone von Klosterneuburg...</em>',
+        'intro.body': '... verbirgt sich eine außergewöhnliche Immobilie mit Geschichte und nahezu unbegrenzten Möglichkeiten. Dieses einzigartige Stadthaus aus dem 16.Jahrhundert verbindet historischen Charme mit moderner Architektur zu einem inspirierenden Ensemble. Auf 640m2 Nutzfläche entstehen Räume für Menschen, die groß denken, Wohnen, Arbeiten, Kreativität, Unternehmertum oder stilvolle Veranstaltungen-alles unter einem Dach.',
+        'banner1.kicker': 'Wer hier lebt und arbeitet, genießt einen entscheidenden Luxus:',
+        'banner1.headline': 'Der Weg vom Wohnbereich zum Arbeitsplatz<br>dauert nur wenige Sekunden.',
+        'dach.heading': 'Noch mehr Luxus<br><em>über den Dächern von Klosterneuburg</em>',
+        'dach.li1': 'Das Dachgeschoß eröffnet eine grüne Wohlfühloase mit zwei privaten Terrassen.',
+        'dach.li2': 'Eine großzügige 70\u00a0m² Dachterrasse mit Begrünung bietet Raum für entspannte Abende, inspirierende Gespräche oder exklusive Empfänge.',
+        'dach.li3': 'Die zweite Terrasse mit Whirlpool schafft einen privaten Rückzugsort mit Blick über die Dächer der Stadt.',
+        'dach.li4': 'Ergänzt wird das Ambiente durch eine Frühstücksterrasse im Halbstock, einen mediterranen Innenhof, einen stimmungsvollen Eventkeller und einen charmanten Weinkeller – perfekt für Menschen, die gerne Gastgeber sind.',
+        'banner2.kicker': 'Dieses Haus ist weit mehr als eine Wohnimmobilie',
+        'banner2.headline': 'Perfekt für Unternehmer und Visionäre',
+        'nutzung.heading': 'Die separaten Einheiten eröffnen<br><em>zahlreiche Möglichkeiten</em>',
+        'nutzung.li1': 'Exklusiver Wohnsitz mit eigenem Büro',
+        'nutzung.li2': 'Ordination oder Praxis',
+        'nutzung.li3': 'Boutique-Agentur oder Kreativstudio',
+        'nutzung.li4': 'Private Member Lounge oder Seminarhaus',
+        'nutzung.li5': 'Stilvolle Kombination aus Wohnen und Büro',
+        'galerie.eyebrow': 'Impressionen',
+        'galerie.heading': 'Das Objekt<br><em>in Bildern</em>',
+        'lage.label1': 'Garage für ein Auto im Haus',
+        'lage.sub1': '3 Gehminuten zum Parkhaus',
+        'lage.label2': '5 Gehminuten zu Zug oder Bus',
+        'lage.label3': '17 Autominuten in die Wiener Innenstadt',
+        'lage.label4': 'Alle Nahversorger für den täglichen Bedarf im Umkreis von 200 Metern',
+        'geschichte.heading': '400 Jahre Geschichte —<br><em>neu interpretiert</em>',
+        'geschichte.p1': 'Die Ursprünge dieses Hauses reichen bis ins 16. Jahrhundert zurück.',
+        'geschichte.p2': 'Im Zuge einer aufwändigen Generalsanierung wurde die historische Substanz mit großer Sorgfalt restauriert und mit moderner Architektur ergänzt.',
+        'geschichte.p3': 'Freigelegte Steinwände, Kreuzgewölbe, Terrakottaböden und handgearbeiteter Kalkputz verbinden sich mit Glas, Stahl und Holz zu einem faszinierenden Spannungsfeld zwischen Vergangenheit und Gegenwart.',
+        'banner3.headline': 'Ein Ort, an dem Wohnen, Unternehmertum und Lebensqualität verschmelzen.',
+        'kennzahlen.heading': 'Die <em>Fakten</em>',
+        'kennzahlen.grundflaeche': 'Grundfläche',
+        'kennzahlen.nutzflaeche': 'Wohn Nutzfläche',
+        'kennzahlen.kaufpreis': 'Kaufpreis',
+        'kennzahlen.m2preis': 'm² Preis',
+        'kennzahlen.provisionsfrei': 'Provisionsfrei',
+        'video.eyebrow': 'Rundgang',
+        'video.heading': 'Das Objekt<br><em>im Video</em>',
+        'besichtigung.heading': 'Persönliche<br><em>Besichtigung</em>',
+        'besichtigung.p1': 'Das besondere Flair dieser Immobilie lässt sich am besten bei einer persönlichen Besichtigung erleben.',
+        'besichtigung.p2': 'Wenn Sie auf der Suche nach einem außergewöhnlichen Haus mit Geschichte, Charakter und vielseitigen Möglichkeiten sind, freuen wir uns über Ihre Kontaktaufnahme.',
+        'besichtigung.btn': 'Besichtigung vereinbaren',
+        'kontakt.heading': 'Besichtigungstermine<br><em>vereinbaren</em>',
+        'footer.impressum': 'Impressum',
+        'footer.datenschutz': 'Datenschutz',
+        'js.gesendet': 'Gesendet ✓',
+        'js.sliderDot': 'Bild',
+        'js.prevSlide': 'Vorheriges Bild',
+        'js.nextSlide': 'Nächstes Bild',
+      },
+      en: {
+        'nav.galerie': 'Gallery',
+        'nav.kontakt': 'Contact',
+        'nav.burgerLabel': 'Open menu',
+        'hero.title': 'Exclusive Historic Townhouse with Private Rooftop Terrace and Exceptional Business Potential',
+        'intro.heading': 'Behind the discreet façade <br><em> in the pedestrian zone of Klosterneuburg…</em>',
+        'intro.body': '…lies an extraordinary property rich in history and virtually unlimited possibilities. This unique townhouse dating back to the 16th century combines timeless historic charm with refined contemporary architecture, creating an inspiring living and working environment. Offering approximately 640 m² of usable space, the property is designed for individuals who think beyond convention — seamlessly integrating elegant living, professional workspaces, creativity, entrepreneurship, and sophisticated entertaining under one roof.',
+        'banner1.kicker': 'A truly rare luxury defines this residence:',
+        'banner1.headline': 'The transition from private living quarters to your professional workspace takes only seconds.',
+        'dach.heading': 'Elevated luxury<br><em>Above the Rooftops of Klosterneuburg</em>',
+        'dach.li1': 'The upper level reveals a private green sanctuary with two exclusive rooftop terraces.',
+        'dach.li2': 'A beautifully landscaped 70 m² rooftop terrace provides the ideal setting for relaxed evenings, inspiring conversations, and refined private receptions.',
+        'dach.li3': 'A second terrace featuring a whirlpool creates an intimate retreat overlooking the historic rooftops of the city.',
+        'dach.li4': 'The exceptional atmosphere is further enhanced by a charming breakfast terrace on the mezzanine level, a Mediterranean-style inner courtyard, an atmospheric event cellar, and a traditional wine cellar — Perfectly suited for owners who appreciate refined hospitality and elegant entertaining.',
+        'banner2.kicker': 'Far More Than a Residential Property',
+        'banner2.headline': 'Perfect for Entrepreneurs, Visionaries, and Creative Professionals',
+        'nutzung.heading': 'The separate units open up<br><em>countless possibilities</em>',
+        'nutzung.li1': 'Exclusive private residence with executive office',
+        'nutzung.li2': 'Medical practice or private consultancy',
+        'nutzung.li3': 'Boutique agency or creative studio',
+        'nutzung.li4': 'Private members’ lounge or seminar house',
+        'nutzung.li5': 'Elegant combination of residence and business premises',
+        'galerie.eyebrow': 'Impressions',
+        'galerie.heading': 'Prime Location & Accessibility',
+        'lage.label1': 'Private in-house garage for one vehicle',
+        'lage.sub1': 'Public parking garage within a 3-minute walk',
+        'lage.label2': 'Train and bus connections reachable within 5 minutes',
+        'lage.label3': 'Vienna city center accessible in approximately 17 minutes by car',
+        'lage.label4': 'All essential daily amenities located within a 200-meter radius',
+        'geschichte.heading': '400 Years of History —<br><em>Reimagined for Contemporary Living</em>',
+        'geschichte.p1': 'The origins of this remarkable residence date back to the 16th century.',
+        'geschichte.p2': 'During an extensive and carefully executed full renovation, the historic substance of the building was meticulously restored and thoughtfully combined with contemporary architectural elements.',
+        'geschichte.p3': 'Exposed natural stone walls, vaulted ceilings, terracotta flooring, and handcrafted lime plaster harmonize beautifully with glass, steel, and wood, creating a fascinating dialogue between heritage and modernity.',
+        'banner3.headline': 'A unique property where lifestyle, entrepreneurship, and exceptional quality of life merge seamlessly.',
+        'kennzahlen.heading': 'Key <em>Facts</em>',
+        'kennzahlen.grundflaeche': 'Plot size',
+        'kennzahlen.nutzflaeche': 'Usable living area',
+        'kennzahlen.kaufpreis': 'Purchase Price',
+        'kennzahlen.m2preis': 'Price per m²',
+        'kennzahlen.provisionsfrei': 'Commission-free sale',
+        'video.eyebrow': 'Tour',
+        'video.heading': 'The Property<br><em>on Video</em>',
+        'besichtigung.heading': 'Personal<br><em>Viewing</em>',
+        'besichtigung.p1': 'The special flair of this property is best experienced during a personal viewing.',
+        'besichtigung.p2': 'If you are looking for an extraordinary home with history, character, and versatile possibilities, we look forward to hearing from you.',
+        'besichtigung.btn': 'Arrange a viewing',
+        'kontakt.heading': 'Arrange viewing<br><em>appointments</em>',
+        'footer.impressum': 'Legal Notice',
+        'footer.datenschutz': 'Privacy Policy',
+        'js.gesendet': 'Sent ✓',
+        'js.sliderDot': 'Image',
+        'js.prevSlide': 'Previous image',
+        'js.nextSlide': 'Next image',
+      }
+    };
+    let currentLang = 'de';
+
+    // ── SET LANGUAGE
+    function setLang(lang) {
+      const t = TRANSLATIONS[lang];
+      if (!t) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.dataset.i18nAria;
+        if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
+      });
+      document.querySelectorAll('#sliderDots .dot').forEach((btn, i) => {
+        btn.setAttribute('aria-label', `${t['js.sliderDot']} ${i + 1}`);
+      });
+      const toggle = document.getElementById('langToggle');
+      if (toggle) toggle.dataset.lang = lang;
+      localStorage.setItem('lang', lang);
+    }
+
     // nav is always solid — no scroll toggle needed
 
     // ── BURGER MENU
@@ -1651,7 +1856,7 @@
       slides.forEach((_, i) => {
         const btn = document.createElement('button');
         btn.className = 'dot' + (i === 0 ? ' active' : '');
-        btn.setAttribute('aria-label', `Bild ${i + 1}`);
+        btn.setAttribute('aria-label', `${TRANSLATIONS[currentLang]['js.sliderDot']} ${i + 1}`);
         btn.addEventListener('click', () => { goTo(i); resetTimer(); });
         dots.appendChild(btn);
       });
@@ -1708,10 +1913,21 @@
     function handleSubmit(e) {
       e.preventDefault();
       const btn = document.getElementById('submitBtn');
-      btn.textContent = 'Gesendet ✓';
+      btn.textContent = TRANSLATIONS[currentLang]['js.gesendet'];
       btn.style.background = 'var(--accent)';
       btn.disabled = true;
     }
+
+    // ── LANGUAGE INIT
+    (function () {
+      const saved = localStorage.getItem('lang');
+      if (saved && saved !== 'de') {
+        setLang(saved);
+      } else {
+        const toggle = document.getElementById('langToggle');
+        if (toggle) toggle.dataset.lang = 'de';
+      }
+    })();
   </script>
 </body>
 
