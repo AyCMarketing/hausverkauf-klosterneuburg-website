@@ -518,10 +518,12 @@
       pointer-events: none;
       transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .lb-overlay.lb-open {
       opacity: 1;
       pointer-events: all;
     }
+
     .lb-img-wrap {
       max-width: 90vw;
       max-height: 90vh;
@@ -529,6 +531,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .lb-img-wrap img {
       max-width: 90vw;
       max-height: 88vh;
@@ -539,17 +542,19 @@
       transition: transform 0.35s cubic-bezier(0.34, 1.3, 0.64, 1), opacity 0.28s ease;
       display: block;
     }
+
     .lb-img-wrap img.lb-img-ready {
       transform: scale(1);
       opacity: 1;
     }
+
     .lb-close {
       position: absolute;
       top: 1.25rem;
       right: 1.25rem;
       background: none;
-      border: 1px solid rgba(255,255,255,0.25);
-      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.85);
       font-size: 1.4rem;
       width: 2.75rem;
       height: 2.75rem;
@@ -561,14 +566,23 @@
       line-height: 1;
       transition: background 0.2s, border-color 0.2s;
     }
-    .lb-close:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.55); }
-    .lb-close:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 2px; }
+
+    .lb-close:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+
+    .lb-close:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 2px;
+    }
+
     .lb-nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       color: #fff;
       width: 3rem;
       height: 3rem;
@@ -579,28 +593,63 @@
       justify-content: center;
       transition: background 0.2s, border-color 0.2s, transform 0.15s;
     }
-    .lb-nav svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; }
-    .lb-nav:hover { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.45); }
-    .lb-nav:active { transform: translateY(-50%) scale(0.92); }
-    .lb-nav:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 2px; }
-    .lb-prev { left: 1.5rem; }
-    .lb-next { right: 1.5rem; }
+
+    .lb-nav svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .lb-nav:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+
+    .lb-nav:active {
+      transform: translateY(-50%) scale(0.92);
+    }
+
+    .lb-nav:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 2px;
+    }
+
+    .lb-prev {
+      left: 1.5rem;
+    }
+
+    .lb-next {
+      right: 1.5rem;
+    }
+
     .lb-counter {
       position: absolute;
       bottom: 1.25rem;
       left: 50%;
       transform: translateX(-50%);
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       font-size: 0.8rem;
       font-family: var(--serif);
       letter-spacing: 0.08em;
       white-space: nowrap;
       pointer-events: none;
     }
+
     @media (max-width: 600px) {
-      .lb-nav { width: 2.5rem; height: 2.5rem; }
-      .lb-prev { left: 0.75rem; }
-      .lb-next { right: 0.75rem; }
+      .lb-nav {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      .lb-prev {
+        left: 0.75rem;
+      }
+
+      .lb-next {
+        right: 0.75rem;
+      }
     }
 
     .slider-btn {
@@ -929,6 +978,14 @@
       font-weight: 300;
       color: var(--dark);
       letter-spacing: -0.01em;
+    }
+
+    .kennzahlen-tel {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--mid);
+      letter-spacing: 0;
     }
 
     .kennzahlen-provisionsfrei {
@@ -1696,11 +1753,8 @@
       </div>
       <div class="kennzahlen-row">
         <span class="kennzahlen-label" data-i18n="kennzahlen.kaufpreis">Kaufpreis</span>
-        <span class="kennzahlen-value">2 390 000 Euro</span>
-      </div>
-      <div class="kennzahlen-row">
-        <span class="kennzahlen-label" data-i18n="kennzahlen.m2preis">m² Preis</span>
-        <span class="kennzahlen-value">3.740 Euro</span>
+        <span class="kennzahlen-value"><span class="kennzahlen-tel" data-i18n-html="kennzahlen.kaufpreistel">rufen Sie
+            uns einfach an unter <strong>0664 411 34 24</strong></span></span>
       </div>
       <p class="kennzahlen-provisionsfrei" data-i18n="kennzahlen.provisionsfrei">Provisionsfrei</p>
     </div>
@@ -1770,13 +1824,17 @@
   <div id="lightbox" class="lb-overlay" tabindex="-1" role="dialog" aria-modal="true" aria-label="Bildansicht">
     <button class="lb-close" id="lbClose" aria-label="Schließen">&#x2715;</button>
     <button class="lb-nav lb-prev" id="lbPrev" aria-label="Vorheriges Bild">
-      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <svg viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
     </button>
     <div class="lb-img-wrap">
       <img id="lbImg" src="" alt="Galerie Bild" />
     </div>
     <button class="lb-nav lb-next" id="lbNext" aria-label="Nächstes Bild">
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <svg viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
     </button>
     <span class="lb-counter" id="lbCounter">1 / 25</span>
   </div>
@@ -1822,7 +1880,7 @@
         'kennzahlen.grundflaeche': 'Grundfläche',
         'kennzahlen.nutzflaeche': 'Wohn Nutzfläche',
         'kennzahlen.kaufpreis': 'Kaufpreis',
-        'kennzahlen.m2preis': 'm² Preis',
+        'kennzahlen.kaufpreistel': 'rufen Sie uns einfach an unter <strong>0664 411 34 24</strong>',
         'kennzahlen.provisionsfrei': 'Provisionsfrei',
         'video.eyebrow': 'Rundgang',
         'video.heading': 'Das Objekt<br><em>im Video</em>',
@@ -1876,7 +1934,7 @@
         'kennzahlen.grundflaeche': 'Plot size',
         'kennzahlen.nutzflaeche': 'Usable living area',
         'kennzahlen.kaufpreis': 'Purchase Price',
-        'kennzahlen.m2preis': 'Price per m²',
+        'kennzahlen.kaufpreistel': 'simply give us a call at <strong>+43 664 411 34 24</strong>',
         'kennzahlen.provisionsfrei': 'Commission-free sale',
         'video.eyebrow': 'Tour',
         'video.heading': 'The Property<br><em>on Video</em>',
@@ -2003,11 +2061,11 @@
     // ── LIGHTBOX
     (function () {
       const overlay = document.getElementById('lightbox');
-      const lbImg   = document.getElementById('lbImg');
-      const lbCtr   = document.getElementById('lbCounter');
+      const lbImg = document.getElementById('lbImg');
+      const lbCtr = document.getElementById('lbCounter');
       const slideImgs = Array.from(document.querySelectorAll('#sliderTrack .slide img'));
-      const srcs    = slideImgs.map(img => img.getAttribute('src'));
-      let lbIndex   = 0;
+      const srcs = slideImgs.map(img => img.getAttribute('src'));
+      let lbIndex = 0;
 
       function lbSetImg(i) {
         lbIndex = (i + srcs.length) % srcs.length;
@@ -2038,28 +2096,28 @@
       // Click on any slide image
       slideImgs.forEach((img, i) => {
         img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function() { lbOpen(i); });
+        img.addEventListener('click', function () { lbOpen(i); });
       });
 
       document.getElementById('lbClose').addEventListener('click', lbClose);
-      document.getElementById('lbPrev').addEventListener('click', function(e) { e.stopPropagation(); lbNav(-1); });
-      document.getElementById('lbNext').addEventListener('click', function(e) { e.stopPropagation(); lbNav(1); });
+      document.getElementById('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); lbNav(-1); });
+      document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); lbNav(1); });
 
       // Close on backdrop click
-      overlay.addEventListener('click', function(e) { if (e.target === overlay) lbClose(); });
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) lbClose(); });
 
       // Keyboard
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', function (e) {
         if (!overlay.classList.contains('lb-open')) return;
-        if (e.key === 'Escape')      lbClose();
-        if (e.key === 'ArrowLeft')   lbNav(-1);
-        if (e.key === 'ArrowRight')  lbNav(1);
+        if (e.key === 'Escape') lbClose();
+        if (e.key === 'ArrowLeft') lbNav(-1);
+        if (e.key === 'ArrowRight') lbNav(1);
       });
 
       // Touch swipe inside lightbox
       var lbTouchX = 0;
-      overlay.addEventListener('touchstart', function(e) { lbTouchX = e.touches[0].clientX; }, { passive: true });
-      overlay.addEventListener('touchend', function(e) {
+      overlay.addEventListener('touchstart', function (e) { lbTouchX = e.touches[0].clientX; }, { passive: true });
+      overlay.addEventListener('touchend', function (e) {
         var dx = e.changedTouches[0].clientX - lbTouchX;
         if (Math.abs(dx) > 40) lbNav(dx < 0 ? 1 : -1);
       }, { passive: true });
